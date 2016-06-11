@@ -1,0 +1,78 @@
+
+
+class box{
+	field int xlocation;
+	field int ylocation;
+	field int size;
+	
+	constructor box new(int x, int y){
+		let xlocation = x;
+		let ylocation = y;
+		let size = 15;
+		do black();
+		return this;
+	}
+	
+	method void white(){
+		do Screen.setColor(false);
+        do Screen.drawRectangle(xlocation, ylocation , xlocation + size , ylocation + size );
+        return;
+	
+	}
+	
+	method void black(){
+		do Screen.setColor(true);
+        do Screen.drawRectangle(xlocation, ylocation ,  xlocation + size , ylocation + size );
+        return;
+	
+	}
+	
+	method void moveUp() {
+        if ((ylocation - size -1) > -1) {
+            do white();
+            let ylocation = ylocation - size -1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveDown() {
+        if (ylocation < 240) {
+            do white();
+            let ylocation = ylocation + size +1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveLeft() {
+        if ((xlocation - size -1) >-1) {
+            do white();
+            let xlocation = xlocation - size - 1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveRight() {
+        if (xlocation < 496) {
+            do white();
+            let xlocation = xlocation + size + 1;
+            do black();
+        }
+        return;
+    }
+    
+    method int getLocationx(){
+		return xlocation;
+	}
+	
+	method int getLocationy(){
+		return ylocation;
+	}
+	
+	method int getSize(){
+		return ylocation;
+	}
+	
+	}

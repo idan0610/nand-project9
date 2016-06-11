@@ -1,0 +1,97 @@
+class game {
+	
+	field board gameboard;
+	field player play;
+	field box b;
+	 
+	constructor game new(){
+        let gameboard = board.new();
+        let play = player.new();
+        let b = box.new(32,32);
+        
+        return this;
+	}
+	
+	
+	method int areTouching(){
+		var int direc;
+		let direc = 0;
+		//top
+		if ((play.getLocationx() = b.getLocationx()) & ((play.getLocationy() + (2*play.getSize()) +2) = b.getLocationy())){
+			let direc = 1;
+		}
+		//bottom
+		if ((play.getLocationx() = b.getLocationx()) & ((play.getLocationy() - (2*play.getSize()) -2) = b.getLocationy())){
+			let direc = 2;
+		}
+		//left
+		if (((play.getLocationx() - (2*play.getSize()) -2) = (b.getLocationx())) & (play.getLocationy() = b.getLocationy())){
+			let direc = 4;
+		}
+		//right
+		if (((play.getLocationx() + (2*play.getSize()) +2) = b.getLocationx()) & (play.getLocationy() = b.getLocationy())){
+			let direc = 3;
+		}
+		
+		return direc;
+	}
+
+	
+	
+    method void run(){
+		var int dir;
+        var char key;
+        var boolean exit;
+        let exit = false;
+
+        while (~exit) {
+            // waits for a key to be pressed.
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+            }
+            let dir = areTouching();
+            if (key = 81) {
+                let exit = true;
+            }
+			
+            if (key = 131) {
+				do play.moveUp();
+				if (dir = 2){
+					do b.moveUp();
+				}
+                let key = 0;
+            }
+            if (key = 133) {
+                do play.moveDown();
+                if (dir = 1){
+					do b.moveDown();
+				}
+                let key = 0;
+
+            }
+            if (key = 130) {
+                do play.moveLeft();
+                if (dir = 4){
+					do b.moveLeft();
+				}
+                let key = 0;
+
+            }
+            if (key = 132) {
+                do play.moveRight();
+                if (dir = 3){
+					do b.moveRight();
+				}
+                let key = 0;
+
+            }
+
+
+            
+            do Sys.wait(100); // Delays the next movement.
+
+        }
+        return;
+        
+ }
+ }

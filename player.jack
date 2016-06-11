@@ -1,0 +1,96 @@
+
+class player{
+	field int xlocation;
+	field int ylocation;
+	field int size;
+	
+	constructor player new(){
+		let xlocation = 0;
+		let ylocation = 0;
+		let size = 15;
+		do black();
+		return this;
+	}
+	
+	method void nicebox(){
+	
+		do Screen.drawRectangle(xlocation, ylocation , xlocation + size , ylocation + size );
+		do Screen.setColor(false);
+		do Screen.drawRectangle(xlocation +3, ylocation +3 , xlocation + 5 , ylocation + 5 );
+		return;
+		
+
+	}
+	
+	method void white(){
+		do Screen.setColor(false);
+        do Screen.drawRectangle(xlocation, ylocation , xlocation + size , ylocation + size );
+        return;
+	
+	}
+	
+	
+	method void black(){
+		do Screen.setColor(true);
+        do Screen.drawRectangle(xlocation, ylocation ,  xlocation + size , ylocation + size );
+        do Screen.setColor(false);
+		do Screen.drawRectangle(xlocation +3, ylocation +3 , xlocation + 5 , ylocation + 5 );
+		do Screen.drawRectangle(xlocation +11, ylocation +3 , xlocation + 13 , ylocation + 5 );
+
+		do Screen.drawRectangle(xlocation +3, ylocation +10 , xlocation + 13 , ylocation + 11 );
+
+        return;
+	
+	}
+	
+	method void moveUp() {
+        if ((ylocation - size -1) > -1) {
+            do white();
+            let ylocation = ylocation - size -1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveDown() {
+        if (ylocation < 240) {
+            do white();
+            let ylocation = ylocation + size +1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveLeft() {
+        if ((xlocation - size -1) >-1) {
+            do white();
+            let xlocation = xlocation - size - 1;
+            do black();
+        }
+        return;
+    }
+
+    method void moveRight() {
+        if (xlocation < 496) {
+            do white();
+            let xlocation = xlocation + size + 1;
+            do black();
+        }
+        return;
+    }
+    
+    method int getLocationx(){
+		return xlocation;
+	}
+	
+	method int getLocationy(){
+		return ylocation;
+	}
+	
+	method int getSize(){
+		return size;
+	}
+	
+
+
+}

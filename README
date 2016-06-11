@@ -1,0 +1,23 @@
+daph.kaplan, idan0610
+===============================================================================
+Daphna Kaplan, ID 204092613, daph.kaplan@mail.huji.ac.il
+Idan Refaeli, ID 305681132, idan.refaeli@mail.huji.ac.il
+===============================================================================
+
+                           Project 9 - High Level Programming
+                           ----------------------------------
+  
+
+Submitted Files
+---------------
+README 			- This file.
+Main.jack 		- Starts the sokoban game
+board.jack 		- Restart the board
+box.jack		- The box class
+game.jack		- The logic of the game
+player.jack		- The player class
+
+Remarks
+-------
+The player has to push the box over the circles on the board and
+clean them. You win when there are no cicles.

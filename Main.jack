@@ -1,0 +1,14 @@
+class Main {
+	
+	
+	
+    function void main(){
+	var game sokoban;
+	let sokoban = game.new();
+	do sokoban.run();
+	
+	return;
+        
+ }
+ 
+ }
